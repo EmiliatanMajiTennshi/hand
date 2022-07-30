@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  min-width: 800px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 120px;
+  height: 27px;
+  background: url("../../assets/logo-unlogin.9b9c161b.png") no-repeat;
+  background-size: 100%;
+  margin-right: 16px;
+}
+
+.menu {
+  height: 54px;
+}
+
+.menu span {
+  line-height: 54px;
+  padding: 0 20px;
+  cursor: pointer;
+  color: #4d4d4d;
+  font-size: 14px;
+}
+
+.menu span:hover {
+  color: #ff8a2b;
+}
+/* .menu span i{
+
+} */
+.img-unfold {
+  width: 12px;
+  height: 12px;
+  vertical-align: middle;
+  margin-left: 4px;
+  transition: all 0.3s linear;
+}
+.menu span:hover .img-unfold {
+  transform: rotate(180deg) translateY(2px);
+  transition: all 0.3s linear 0.3s;
+}
