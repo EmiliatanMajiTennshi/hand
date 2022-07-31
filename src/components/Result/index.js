@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
+import { Pagination } from 'antd'
 
 export default function Result(props) {
   const { keywordCopy, searchedList } = props;
-  console.log(searchedList);
+  const [currentResult, setCurrentResult] = useState([]);
+  const changePage = (key) => {
+    setCurrentResult(searchedList.slice((key - 1) * 9, 9 * key))
+  }
   return (
     <div className="result">
       <div className="summary">
@@ -36,6 +40,9 @@ export default function Result(props) {
             );
           })}
         </ul>
+      </div>
+      <div className="footer">
+        <Pagination size="small" total={searchedList.length} pageSize={5} style={{ float: "right" }} onChange={(key) => changePage(key)} />
       </div>
     </div>
   );
