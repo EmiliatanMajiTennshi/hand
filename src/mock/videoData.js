@@ -5,7 +5,7 @@ Mock.setup({
   timeout: 500,
 });
 export default Mock.mock("/getVideoData", "get", {
-  "array|20-30": [
+  "array|40-50": [
     {
       title: "@ctitle(3,8)",
       description: "@csentence",
