@@ -8,10 +8,13 @@ export default function Result(props) {
 
   useEffect(() => {
     setCurrentResult(searchedList.slice(0, 5))
-  }, [])
+    console.log(1);
+  }, [searchedList])
 
   const changePage = (key) => {
+    console.log(key);
     setCurrentResult(searchedList.slice((key - 1) * 5, 5 * key))
+
   }
   return (
     <div className="result">
