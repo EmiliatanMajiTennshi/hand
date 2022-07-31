@@ -5,9 +5,10 @@ import { Pagination } from 'antd'
 export default function Result(props) {
   const { keywordCopy, searchedList } = props;
   const [currentResult, setCurrentResult] = useState([]);
+
   useEffect(() => {
-    setCurrentResult(searchedList.slice(0, 9))
-  }, [currentResult, searchedList])
+    setCurrentResult(searchedList.slice(0, 5))
+  }, [])
 
   const changePage = (key) => {
     setCurrentResult(searchedList.slice((key - 1) * 5, 5 * key))
