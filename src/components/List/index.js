@@ -1,14 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
 
 export default function List(props) {
   const { flag, videoData, navList, tagList } = props;
   const [currentNavIndex, setCurrentNavIndex] = useState(0);
   const [currentTagIndex, setCurrentTagIndex] = useState(0);
+  const [topDistance, setTopDistance] = useState(0);
+  const scrollChange = () => {
+    // 监听滚动条距离顶部距离
+    setTopDistance(document.documentElement.scrollTop)
+  }
+
+  useEffect(() => {
+    // 滚动条滚动时触发
+    window.addEventListener('scroll', scrollChange, true)
+    scrollChange()
+    return () => {
+      window.removeEventListener('scroll', scrollChange, false)
+    }
+  }, [])
+
   return (
     <div className="list">
-      <div className="list-menu">
-        <ul>
+      <div className="list-menu" >
+        <ul className={topDistance >= 243 ? 'fixed-nav' : ''}>
           {navList.map((item, index) => {
             // navList
             return (
@@ -53,33 +68,33 @@ export default function List(props) {
               <span></span>
             </div>
           ) : (
-            <ul>
-              {videoData.map((item) => {
-                return (
-                  <li key={item.id} className="video-item">
-                    <div className="item-img">
-                      <img src={item.image} alt=""></img>
-                    </div>
+              <ul>
+                {videoData.map((item) => {
+                  return (
+                    <li key={item.id} className="video-item">
+                      <div className="item-img">
+                        <img src={item.image} alt=""></img>
+                      </div>
 
-                    <div className="item-footer">
-                      <div className="item-description">
-                        <span className="item-title">{item.title}</span>
-                        <span className="item-content">{item.description}</span>
-                      </div>
-                      <div className="view-count">
-                        <span className="current-count">
-                          {item.viewCount}次播放
+                      <div className="item-footer">
+                        <div className="item-description">
+                          <span className="item-title">{item.title}</span>
+                          <span className="item-content">{item.description}</span>
+                        </div>
+                        <div className="view-count">
+                          <span className="current-count">
+                            {item.viewCount}次播放
                         </span>
-                        <span className="video-count">
-                          {item.lessonCount}节
+                          <span className="video-count">
+                            {item.lessonCount}节
                         </span>
+                        </div>
                       </div>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
         </div>
       </div>
     </div>

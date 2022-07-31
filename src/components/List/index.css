@@ -7,8 +7,17 @@
 .list-menu {
   width: 220px;
   height: 416px;
-  background-color: #fff;
   padding: 8px 0;
+}
+.list-menu ul{
+  width: 220px;
+  height: 416px;
+  /* position: fixed; */
+  background-color: #fff;
+}
+.fixed-nav{
+   position: fixed;
+   top: 50px;
 }
 
 .list-menu li {
