@@ -151,7 +151,7 @@
   width: 10px;
   height: 30px;
   border-radius: 4px;
-  background: rgb(215, 27, 229);
+  background: #ff8a2b;
   animation: loading 2s ease infinite;
   vertical-align: middle;
 }
