@@ -7,11 +7,11 @@ Mock.setup({
 export default Mock.mock("/getVideoData", "get", {
   "array|7-9": [
     {
-      title: "@ctitle(8,13)",
+      title: "@ctitle(3,8)",
       description: "@csentence",
       email: "@email",
       "id|+1": 1,
-      image: Random.image("290x163", Random.color(), Random.color(), "Mock.js"),
+      image: Random.image("290x163", Random.color(), Random.color(), "@title"),
       "viewCount|314-21313": 2456,
       "lessonCount|4-15": 5,
     },

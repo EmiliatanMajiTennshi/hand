@@ -3,6 +3,7 @@ import Mock from "mockjs";
 Mock.setup({
   timeout: 500,
 });
+
 export default Mock.mock("/getNavList", "get", [
   "全部产品",
   "飞搭Feida",

@@ -10,6 +10,7 @@ export default function List(props) {
       <div className="list-menu">
         <ul>
           {navList.map((item, index) => {
+            // navList
             return (
               <li
                 key={index}

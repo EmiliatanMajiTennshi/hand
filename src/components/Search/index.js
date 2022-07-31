@@ -1,15 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 
-import { useNavigate } from "react-router-dom";
-
-export default function Header(props) {
-  const { setKeyword, handleSearch } = props;
+export default function Search(props) {
+  const { keyword, setKeyword, handleSearch, setKeywordCopy } = props;
   const navigate = useNavigate();
 
   const handleClick = () => {
+    setKeywordCopy(keyword);
     handleSearch();
     navigate("/result");
+  };
+  const handleKeyUp = (e) => {
+    console.log(e);
+    if (e.key === "Enter") {
+      handleClick();
+    }
   };
   return (
     <div className="banner">
@@ -23,6 +29,7 @@ export default function Header(props) {
           onChange={(e) => {
             setKeyword(e.target.value);
           }}
+          onKeyUp={handleKeyUp}
         />
         <button className="btn-search" onClick={handleClick}>
           搜 索
