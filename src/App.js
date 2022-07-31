@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import List from "./components/List";
 import Result from "./components/Result";
-import Footer from "./components/Footer";
+
 
 import "./mock/videoData";
 import "./mock/navList";
@@ -80,7 +80,6 @@ export default function App() {
         />
         <Route path="/" element={<Navigate to="/list" />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

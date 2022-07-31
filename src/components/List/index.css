@@ -191,3 +191,9 @@
   height: 30px;
   animation-delay: 1s;
 }
+
+.footer{
+  width: 1156px;
+  height: 100px;
+  margin: 0 auto;
+}
