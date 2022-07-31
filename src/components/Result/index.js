@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
 import { Pagination } from 'antd'
 
 export default function Result(props) {
   const { keywordCopy, searchedList } = props;
   const [currentResult, setCurrentResult] = useState([]);
+  useEffect(() => {
+    setCurrentResult(searchedList.slice(0, 9))
+  }, [currentResult, searchedList])
+
   const changePage = (key) => {
-    setCurrentResult(searchedList.slice((key - 1) * 9, 9 * key))
+    setCurrentResult(searchedList.slice((key - 1) * 5, 5 * key))
   }
   return (
     <div className="result">
@@ -16,7 +20,7 @@ export default function Result(props) {
       </div>
       <div className="result-list">
         <ul>
-          {searchedList.map((item) => {
+          {currentResult.map((item) => {
             return (
               <li className="result-item" key={item.id}>
                 <div className="result-img">

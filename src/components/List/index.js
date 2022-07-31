@@ -18,11 +18,11 @@ export default function List(props) {
     // 滚动条滚动时触发
     window.addEventListener('scroll', scrollChange, true)
     scrollChange()
-    setCurrentVideos(videoData.slice(0, 9))
     return () => {
       window.removeEventListener('scroll', scrollChange, false)
     }
   }, [videoData])
+
   const changePage = (key) => {
     setCurrentVideos(videoData.slice((key - 1) * 9, 9 * key))
   }
